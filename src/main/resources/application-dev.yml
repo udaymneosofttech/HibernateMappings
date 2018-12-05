@@ -1,0 +1,19 @@
+server:
+  port: 2012
+  servlet:
+    context-path: /hazelcast
+pubnub:
+  publishKey: pub-c-841a7e49-7de4-4c2a-99ae-cfd6bd98d441
+  subscribeKey: sub-c-dff218a0-868b-11e8-85ee-866938e9174c
+  secretKey: sec-c-OGIxMTlmNGYtN2FhYy00Y2U4LWJjOGUtODM1ODAwOTE2YTA0
+  uuid: 82f1adc6-b484-43b4-be68-c400b69fe55b
+cloud:
+  aws:
+    credentials:
+      accessKey: AKIAJZ3TWUUP2FAENNHA
+      secretKey: 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
+    region:
+      static: us-east-1
+      sqs: us-east-1
+queue:
+  insert: insert

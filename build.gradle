@@ -1,0 +1,60 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.6.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.live.vio.hazelcast'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+configurations {
+	compile.exclude module: 'spring-boot-starter-tomcat'
+	//compile.exclude module: 'spring-boot-starter-logging'
+	//compile.exclude module: 'logback-classic'
+	compile.exclude module: 'tomcat-jdbc'
+}
+
+dependencies {
+	// Jackson
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.9.5'
+
+	//Jackson Data Binding
+	compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.5.0'
+
+	implementation('org.springframework.boot:spring-boot-starter-web')
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	// Spring Jetty
+	compile('org.eclipse.jetty:jetty-webapp:9.+')
+
+	// Amazon
+	compile 'com.amazonaws:aws-java-sdk-sqs'
+	compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.315'
+
+	//pubnub
+	compile group: 'com.pubnub', name: 'pubnub-gson', version: '4.19.0'
+
+	// Amazon SDK
+	compile group: 'com.amazonaws', name: 'amazon-sqs-java-messaging-lib', version: '1.0.0'
+
+	// Spring JMS
+	compile group: 'javax.jms', name: 'javax.jms-api', version: '2.0'
+	compile group: 'org.springframework', name: 'spring-jms', version: '4.1.0.RELEASE'
+
+}
+
+
